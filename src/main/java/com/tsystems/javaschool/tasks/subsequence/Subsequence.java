@@ -14,7 +14,19 @@ public class Subsequence {
      */
     @SuppressWarnings("rawtypes")
     public boolean find(List x, List y) {
-        // TODO: Implement the logic here
-        return false;
+        if(x == null || y == null) throw new IllegalArgumentException();
+
+        int curY = 0;
+        for (Object curX: x) {
+            try {
+                while (!curX.equals(y.get(curY))) {
+                    curY++;
+                }
+            } catch (IndexOutOfBoundsException e) {
+                // IndexOutOfBoundsException means that we went out of bounds before we found all the equal Y elements
+                return false;
+            }
+        }
+        return true;
     }
 }
