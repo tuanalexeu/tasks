@@ -28,7 +28,7 @@ public class PyramidBuilder {
                 throw new CannotBuildPyramidException();
             } else {
                 int[][] result = new int[row][(row * 2) - 1];
-                int cur = 0;
+                int cur = 0; // Keep index of current element of input array
 
                 for (int j = 0; j < result.length; j++) {
                     for (int k = 0; k < (j * 2) + 1; k += 2) {
