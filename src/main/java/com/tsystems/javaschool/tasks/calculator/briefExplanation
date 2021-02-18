@@ -1,0 +1,27 @@
+Let us consider example "((1 + 5) + 3) * (2 / 5 + 5) + 6"
+
+The idea is simple:
+    1) We divide a given string by + or - which are at the top (since these operators have the lowest priority).
+        In each divided member we keep its sign, so that we can add or sub it from the final result later.
+        The example string is going to become array [((1 + 5) + 3) * (2 / 5 + 5), +6]
+
+    2) Each member may be either a number or an expression.
+
+        2.1) If it's a number - just parse it and add to the final result
+            +6 - just a number, so we add it to the final result
+
+        2.2) If it's an expression, we must calculate it. In this case the member doesn't contain any + or - at the top
+             It might contain them in parentheses, but in that case they'll have the higher priority and we will skip them for now.
+             To calculate the expression we should divide it by * and / at the top (also keeping the operator)
+
+             The example string will become the following array: [((1 + 5) + 3), *(2 / 5 + 5)]
+
+    3) Now we have just an array of smaller expressions. All we need is just to continue calculate them until all the members are numbers.
+       So, we continue calculating expressions from the array:
+
+       3.1) (1 + 5) + 3 -> [(1+5), +3] -> [1, +5] and +3 (just number) -> 1, +5 and +3 - all the members are numbers. Sum = 9
+       3.2) (2/3 + 5) -> [2/5, +5] -> [2, /3] and +5 -> 2/5 + 5 = 5.4
+       3.3) Final result = 9 * 5.4 + 6 = 54.6
+
+Summary:
+    This approach may not be good implemented, but it supports precedence (as operators with higher priority get executed first).
