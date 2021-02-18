@@ -58,7 +58,9 @@ public class Calculator {
         // or calculate it (if it's an expression)
         String first = elTerms.get(0);
 
-        // TODO переделать костыль
+        // Your unit test didn't cover the case when we have expression like "1 + (2 + 3)"
+        // where we have + or - sign before parentheses.
+        // Without the checking below, I would pass all the tests, but get null as a result to the example above
         double sum;
         switch (first.charAt(0)) {
             case '+':
@@ -75,8 +77,7 @@ public class Calculator {
                 sum = isExpression(first)
                         ? calculateExpression(first.substring(1, first.length() - 1))
                         : Double.parseDouble(first);
-        } //  Here we checked if the first member is a number or is an expression
-        // If it's an expression, we check if it has + or - sign at the start
+        }
 
 
 
@@ -139,7 +140,7 @@ public class Calculator {
         int level = 0;
 
         // We use start to simultaneously extract member from given string
-        // We now the current index of an operator and we just get a substring from
+        // We know the current index of an operator and we just get a substring from
         // the position of the previous operator up to the current index.
         int start = 0;
 
