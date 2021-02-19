@@ -13,7 +13,7 @@ The exam includes 3 tasks to be done: [Calculator](/tasks/Calculator.md), [Pyram
 
 * Author name : Aleksey Tyan (Алексей Тян)
 * Travis CI : [![Build Status](https://travis-ci.com/tuanalexeu/javaschoolexam.svg?branch=master)](https://travis-ci.com/tuanalexeu/javaschoolexam)
-
+* Codeship: to be added
 
 ### How to start?  ###
 * Install [GIT](https://git-scm.com/) and [Maven](https://maven.apache.org)
